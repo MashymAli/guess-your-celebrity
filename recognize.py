@@ -27,7 +27,7 @@ def encode_faces(folder):
 def find_target_face():
     face_location = fr.face_locations(target_image)
 
-    for person in encode_faces('people/'):
+    for person in encode_faces('train/'):
         encoded_face = person[0]
         filename = person[1]
 
@@ -59,17 +59,3 @@ def render_image():
 find_target_face()
 render_image()
 
-#img = cv2.imread("Aamir81.jpg")
-#rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-#img_encoding = face_recognition.face_encodings(rgb_img)[0]
-#
-#img2 = cv2.imread("Aamir84.jpg")
-#rgb_img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
-#img_encoding2 = face_recognition.face_encodings(rgb_img2)[0]
-#
-#result = face_recognition.compare_faces([img_encoding], img_encoding2)
-#print("Result: ", result)
-#
-## Encode faces from a folder
-#sfr = SimpleFacerec()
-#sfr.load_encoding_images("images/")
