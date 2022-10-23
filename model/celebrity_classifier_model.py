@@ -195,8 +195,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 
 pipe = Pipeline([('scaler', StandardScaler()), ('svc', SVC(kernel = 'rbf', C = 10))])
 pipe.fit(X_train, y_train)
-print(pipe.score(X_test, y_test))
-print(len(X_test))
+print("Score: ",pipe.score(X_test, y_test))
+print("Total images",len(X_test))
 
 print("\n")
 print(classification_report(y_test, pipe.predict(X_test)))
