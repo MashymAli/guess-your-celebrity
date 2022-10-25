@@ -63,8 +63,9 @@ for celebrity_name, training_files in celebrity_file_names_dict.items():
         y.append(class_dict[celebrity_name]) 
 
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+# THIS IS NOT WORKING (▱˘︹˘▱)
 
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 #pipe = Pipeline([('scaler', StandardScaler()), ('svc', SVC())])
 pipe = Pipeline([('scaler', StandardScaler()), ('svc', SVC(kernel = 'rbf', C = 10))])
 pipe.fit(X_train, y_train)
