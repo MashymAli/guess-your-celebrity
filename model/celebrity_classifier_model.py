@@ -6,13 +6,13 @@ import pickle
 
 
 #reading original image
-img = cv.imread('model/test/aamir1.jpeg')
+#img = cv.imread('model/test/aamir1.jpeg')
 #print(img.shape)
 #plt.imshow(img)
 #plt.show()
 
 #converting orignal image to grayscale
-gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+#gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 #print(gray.shape)
 #print(gray)
 #plt.imshow(gray,cmap='gray')
@@ -22,14 +22,14 @@ gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 face_cascade = cv.CascadeClassifier('model/opencv/haarcascades/haarcascade_frontalface_default.xml')
 eye_cascade = cv.CascadeClassifier('model/opencv/haarcascades/haarcascade_eye.xml')
 
-faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+#faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 #print(faces)  #return [220  31 293 293]  means x,y width,height where face lies in picture 
 
 
-(x,y,w,h) = faces[0]  
+#(x,y,w,h) = faces[0]  
 #print(x,y,w,h)  #x-axis , y-axis , width , height
 
-face_img = cv.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)  #prints rectangle around the face
+#face_img = cv.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)  #prints rectangle around the face
 #plt.imshow(face_img)
 #plt.show()
 
