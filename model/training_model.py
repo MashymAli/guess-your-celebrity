@@ -75,7 +75,7 @@ print("Score: ",pipe.score(X_test, y_test))
 print("Total images tested: ",len(X_test))
 
 #We cannot use SVC anymore as its not giving much accuracy (▱˘︹˘▱). 
-#I have searched and find that svc is not much suitable for large datasets 😭😭
+#I have searched a bit and found that svc is not much suitable for large datasets 😭😭
 
 #print("\n")
 #print(classification_report(y_test, pipe.predict(X_test)))
