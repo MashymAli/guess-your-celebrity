@@ -62,15 +62,20 @@ for celebrity_name, training_files in celebrity_file_names_dict.items():
         X.append(combined_img)
         y.append(class_dict[celebrity_name]) 
 
+X = np.array(X).reshape(len(X),4096).astype(float)
+print(X.shape)  #prints (2212, 4096) which means (no.of images, pic is represented as 1d array)
 
 # THIS IS NOT WORKING (▱˘︹˘▱)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 #pipe = Pipeline([('scaler', StandardScaler()), ('svc', SVC())])
-pipe = Pipeline([('scaler', StandardScaler()), ('svc', SVC(kernel = 'rbf', C = 10))])
-pipe.fit(X_train, y_train)
-#print("Score: ",pipe.score(X_test, y_test))
-#print("Total images",len(X_test))
+pipe = Pipeline([('scaler', StandardScaler()), ('svc', SVC(kernel = 'rbf', C = 1000))]) #creating svm model
+pipe.fit(X_train, y_train)  #training model created above
+print("Score: ",pipe.score(X_test, y_test))
+print("Total images tested: ",len(X_test))
+
+#We cannot use SVC anymore as its not giving much accuracy (▱˘︹˘▱). 
+#I have searched and find that svc is not much suitable for large datasets 😭😭
 
 #print("\n")
 #print(classification_report(y_test, pipe.predict(X_test)))

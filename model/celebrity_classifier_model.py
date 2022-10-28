@@ -111,7 +111,7 @@ for img_dir in img_dirs:
 
 
 #pickling this dictionary so we can access this into our training_model file
-file = "celebrity_file_names_paths_dict.pkl"
+file = "celebrity_file_names_paths_dict.pkl" #this dict has paths to images in cropped folder
 fileobj = open(file, 'wb')
 pickle.dump(celebrity_file_names_dict, fileobj)
 fileobj.close()
