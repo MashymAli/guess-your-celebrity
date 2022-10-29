@@ -69,10 +69,10 @@ print(X.shape)  #prints (2212, 4096) which means (no.of images, pic is represent
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 #pipe = Pipeline([('scaler', StandardScaler()), ('svc', SVC())])
-pipe = Pipeline([('scaler', StandardScaler()), ('svc', SVC(kernel = 'rbf', C = 1000))]) #creating svm model
-pipe.fit(X_train, y_train)  #training model created above
-print("Score: ",pipe.score(X_test, y_test))
-print("Total images tested: ",len(X_test))
+#pipe = Pipeline([('scaler', StandardScaler()), ('svc', SVC(kernel = 'rbf', C = 1000))]) #creating svm model
+#pipe.fit(X_train, y_train)  #training model created above
+#print("Score: ",pipe.score(X_test, y_test))
+#print("Total images tested: ",len(X_test))
 
 #We cannot use SVC anymore as its not giving much accuracy (▱˘︹˘▱). 
 #I have searched a bit and found that svc is not much suitable for large datasets 😭😭
@@ -80,55 +80,57 @@ print("Total images tested: ",len(X_test))
 #print("\n")
 #print(classification_report(y_test, pipe.predict(X_test)))
 #
-#from sklearn import svm
-#from sklearn.ensemble import RandomForestClassifier
-#from sklearn.linear_model import LogisticRegression
-#from sklearn.pipeline import make_pipeline
-#from sklearn.model_selection import GridSearchCV
+
+# TRYING DIFFERENT ALGOS FOR ACCURACY
+from sklearn import svm
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import make_pipeline
+from sklearn.model_selection import GridSearchCV
 #
-#model_params = {
-#    'svm': {
-#        'model': svm.SVC(gamma='auto',probability=True),
-#        'params' : {
-#            'svc__C': [1,10,100,1000],
-#            'svc__kernel': ['rbf','linear']
-#        }  
-#    },
-#    'random_forest': {
-#        'model': RandomForestClassifier(),
-#        'params' : {
-#            'randomforestclassifier__n_estimators': [1,5,10]
-#        }
-#    },
-#    'logistic_regression' : {
-#        'model': LogisticRegression(solver='liblinear',multi_class='auto'),
-#        'params': {
-#            'logisticregression__C': [1,5,10]
-#        }
-#    }
-#}
-#
-#print("done1")
-#
-#scores = []
-#best_estimators = {}
-#import pandas as pd
-#for algo, mp in model_params.items():
-#    pipe = make_pipeline(StandardScaler(), mp['model'])
-#    clf =  GridSearchCV(pipe, mp['params'], cv=5, return_train_score=False)
-#    clf.fit(X_train, y_train)
-#    scores.append({
-#        'model': algo,
-#        'best_score': clf.best_score_,
-#        'best_params': clf.best_params_
-#    })
-#    best_estimators[algo] = clf.best_estimator_
-#
+model_params = {
+   'svm': {
+        'model': svm.SVC(gamma='auto',probability=True),
+        'params' : {
+            'svc__C': [1,10,100,1000],
+            'svc__kernel': ['rbf','linear']
+        }  
+    },
+    'random_forest': {
+        'model': RandomForestClassifier(),
+        'params' : {
+            'randomforestclassifier__n_estimators': [1,5,10]
+        }
+    },
+    'logistic_regression' : {
+        'model': LogisticRegression(solver='liblinear',multi_class='auto'),
+        'params': {
+            'logisticregression__C': [1,5,10]
+        }
+    }
+}
+
+print("done1")
+
+scores = []
+best_estimators = {}
+import pandas as pd
+for algo, mp in model_params.items():
+    pipe = make_pipeline(StandardScaler(), mp['model'])
+    clf =  GridSearchCV(pipe, mp['params'], cv=3, return_train_score=False)
+    clf.fit(X_train, y_train)
+    scores.append({
+        'model': algo,
+        'best_score': clf.best_score_,
+        'best_params': clf.best_params_
+    })
+    best_estimators[algo] = clf.best_estimator_
+
 #print("done2")
 #    
 #print("\n")
-#df = pd.DataFrame(scores,columns=['model','best_score','best_params'])
-#print(df)
+df = pd.DataFrame(scores,columns=['model','best_score','best_params'])
+print(df)
 #print("done3")
 #
 #print("\n")
