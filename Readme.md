@@ -14,4 +14,5 @@ make sure to delete cropped folder and .pckl and .json files on first run so you
 <b> Still pending</b> </br>
 Deploying to flask </br>
 
-
+</br>
+Reference Repo: https://github.com/codebasics/py/tree/master/DataScience/CelebrityFaceRecognition</br>
