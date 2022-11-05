@@ -89,12 +89,12 @@ def get_b64_text_image_for_angelina():
 
 if __name__ == '__main__':
     load_saved_artifacts()
-    print(classify_image(None, "F:/facial recogition/server/test_images/1.jpg"))
-    print(classify_image(None, "F:/facial recogition/server/test_images/2.jpg"))
-    print(classify_image(None, "F:/facial recogition/server/test_images/3.jpg"))
-    print(classify_image(None, "F:/facial recogition/server/test_images/4.jpg"))
-    print(classify_image(None, "F:/facial recogition/server/test_images/5.jpg")) # Inconsistent result could be due to https://github.com/scikit-learn/scikit-learn/issues/13211
-    print(classify_image(None, "F:/facial recogition/server/test_images/6.jpg"))
+    #print(classify_image(None, "F:/facial recogition/server/test_images/1.jpg"))
+    #print(classify_image(None, "F:/facial recogition/server/test_images/2.jpg"))
+    #print(classify_image(None, "F:/facial recogition/server/test_images/3.jpg"))
+    #print(classify_image(None, "F:/facial recogition/server/test_images/4.jpg"))
+    #print(classify_image(None, "F:/facial recogition/server/test_images/5.jpg")) # Inconsistent result could be due to https://github.com/scikit-learn/scikit-learn/issues/13211
+    #print(classify_image(None, "F:/facial recogition/server/test_images/6.jpg"))
 
     #print(class_number_to_name(5))
     #print(classify_image(get_b64_text_image_for_angelina(),None))

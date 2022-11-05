@@ -20,7 +20,7 @@
     </div>
 
 
-    <div class="container">
+    <div class="container1">
         <div class="row">
         <div class="col card-wrapper" data-player="Angelina Jolie">
                 <div class="card border-0">
@@ -54,20 +54,20 @@
                             </p>
                         </div>
                     </div>
-            </div>          
-
-            <div class="col card-wrapper" data-player="Denzel Washington">
+            </div>  
+            
+            <div class="col card-wrapper" data-player="Hugh Jackman">
                 <div class="card border-0">
                     <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
-                        <img class="w-100 h-100" src="4.jpg" alt="Card image cap">
+                        <img class="w-100 h-100" src="6.jpg" alt="Card image cap">
                     </div>
                     <div class="card-body text-center mt-4">
-                        <h4 class="text-uppercase card-title">Denzel Washington</h4>
+                        <h4 class="text-uppercase card-title">Hugh Jackman</h4>
                         </p>
                     </div>
                 </div>
-            </div>      
-
+            </div>
+    
             <div class="col card-wrapper" data-player="Jennifer Lawrence">
                 <div class="card border-0">
                     <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
@@ -79,23 +79,50 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-
-        <div class="col card-wrapper" data-player="Hugh Jackman">
-            <div class="card border-0">
-                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
-                    <img class="w-100 h-100" src="6.jpg" alt="Card image cap">
+    
+            <div class="col card-wrapper" data-player="Denzel Washington">
+                <div class="card border-0">
+                    <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                        <img class="w-100 h-100" src="4.jpg" alt="Card image cap">
+                    </div>
+                    <div class="card-body text-center mt-4">
+                        <h4 class="text-uppercase card-title">Denzel Washington</h4>
+                        </p>
+                    </div>
                 </div>
-                <div class="card-body text-center mt-4">
-                    <h4 class="text-uppercase card-title">Hugh Jackman</h4>
-                    </p>
-                </div>
-            </div>
+            </div>   
         </div>
-
     </div>
 
+    <div class="container2">
+        <div class="col-sm-4">
+            <form action="/file-upload" class="dropzone" id="dropzone">
+                <div class="dz-message needsclick">
+                    <img src="drop.png" width="50vw" height="50vw"><br>
+                    <span class="note needsclick">Drop files here or click to upload</span>
+                </div>
+            </form>
+            <button id="submitBtn" type="button" class="btn btn-success">Classify</button>
+        </div>
+    </div>
+
+    <div class="container3">
+        <div class="result" id="resultHolder">
+            <h1>Angelina Jolie</h1>
+            <p>Angelina Jolie DCMG is an American actress, filmmaker, and humanitarian. 
+            The recipient of numerous accolades, including an Academy Award and three Golden Globe Awards,
+            she has been named Hollywood's highest-paid actress multiple times</p>
+        </div>
+    </div>
     
+    
+
+
+
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="dropzone.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

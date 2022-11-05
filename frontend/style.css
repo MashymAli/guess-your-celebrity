@@ -9,6 +9,12 @@ body{
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
+html,body{
+    overflow-x: hidden;
+   
+ }
+
+
 .header{
     background-color: paleturquoise;
     height: 3.8rem;
@@ -18,3 +24,68 @@ body{
 .header h1{
     text-align: center;
 }
+
+.custom-circle-image img {
+    object-fit: cover;
+  }
+  
+.custom-circle-image {
+    width: 10vw; /* note i used vw not px for better responsive */
+    height: 10vw;
+}
+
+.row{
+    margin-top: 1rem;
+}
+
+.card-title {
+    font-size: 1.3rem;
+}
+
+.container2{
+    width: 20rem;
+    height: 17rem;
+    background-color: brown;
+    /*position: absolute;*/
+    left: 0;
+    right: 0;
+    margin: auto;
+    /*border: 0.1rem black solid;*/
+    
+}
+
+.container3{
+    /*background-color: blue;*/
+    /*position: absolute;*/
+    left: 0;
+    right: 0;
+    margin: auto;
+    /*border: 0.1rem yellow solid;*/
+    text-align: center;
+    margin-top: 2rem;
+}
+
+
+.dropzone{
+    border-style: dashed;
+    width: 16rem;
+    height: 6rem;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+#submitBtn{
+    width: 5rem;
+    height: 3rem;
+    /*background-color: brown;*/
+    position: absolute;    
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 8rem;
+}
+
