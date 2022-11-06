@@ -53,11 +53,12 @@ function init() {
             */
             console.log(data);
             if (!data || data.length==0) {
-                $("#resultHolder").hide();              
+                $("#resultHolder").hide();
+                $("#divClassTable").hide();                
                 $("#error").show();
                 return;
             }
-            let players = ["Angelina Jolie", "Brad Pitt", "Denzel Washington", "Hugh Jackman", "Jennifer Lawrence", "Will Smith"];
+            let players = ["lionel_messi", "maria_sharapova", "roger_federer", "serena_williams", "virat_kohli"];
             
             let match = null;
             let bestScore = -1;
@@ -71,6 +72,7 @@ function init() {
             if (match) {
                 $("#error").hide();
                 $("#resultHolder").show();
+                $("#divClassTable").show();
                 $("#resultHolder").html($(`[data-player="${match.class}"`).html());
                 let classDictionary = match.class_dictionary;
                 for(let personName in classDictionary) {

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
 
 </head>
 <body>
@@ -25,7 +25,7 @@
         <div class="col card-wrapper" data-player="Angelina Jolie">
                 <div class="card border-0">
                     <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
-                        <img class="w-100 h-100" src="1.jpg" alt="Card image cap">
+                        <img class="w-100 h-100" src="{{ url_for('static',filename='img/1.jpg') }}" alt="Card image cap">
                     </div>
                     <div class="card-body text-center mt-4">
                         <h4 class="text-uppercase card-title">Angelina Jolie</h4>
@@ -36,7 +36,7 @@
             <div class="col card-wrapper" data-player="Brad Pitt">
                     <div class="card border-0">
                         <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
-                            <img class="w-100 h-100" src="2.jpg" alt="Card image cap">
+                            <img class="w-100 h-100" src="{{ url_for('static',filename='img/2.jpg') }}" alt="Card image cap">
                         </div>
                         <div class="card-body text-center mt-4">
                             <h4 class="text-uppercase card-title">Brad Pitt</h4>
@@ -47,7 +47,7 @@
             <div class="col card-wrapper" data-player="Will Smith">
                     <div class="card border-0">
                         <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
-                            <img class="w-100 h-100" src="3.jpg" alt="Card image cap">
+                            <img class="w-100 h-100" src="{{ url_for('static',filename='img/3.jpg') }}" alt="Card image cap">
                         </div>
                         <div class="card-body text-center mt-4">
                             <h4 class="text-uppercase card-title">Will Smith</h4>
@@ -59,7 +59,7 @@
             <div class="col card-wrapper" data-player="Hugh Jackman">
                 <div class="card border-0">
                     <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
-                        <img class="w-100 h-100" src="6.jpg" alt="Card image cap">
+                        <img class="w-100 h-100" src="{{ url_for('static',filename='img/6.jpg') }}" alt="Card image cap">
                     </div>
                     <div class="card-body text-center mt-4">
                         <h4 class="text-uppercase card-title">Hugh Jackman</h4>
@@ -71,7 +71,7 @@
             <div class="col card-wrapper" data-player="Jennifer Lawrence">
                 <div class="card border-0">
                     <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
-                        <img class="w-100 h-100" src="5.jpg" alt="Card image cap">
+                        <img class="w-100 h-100" src="{{ url_for('static',filename='img/5.jpg') }}" alt="Card image cap">
                     </div>
                     <div class="card-body text-center mt-4">
                         <h4 class="text-uppercase card-title">Jennifer Lawrence</h4>
@@ -83,7 +83,7 @@
             <div class="col card-wrapper" data-player="Denzel Washington">
                 <div class="card border-0">
                     <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
-                        <img class="w-100 h-100" src="4.jpg" alt="Card image cap">
+                        <img class="w-100 h-100" src="{{ url_for('static',filename='img/4.jpg') }}" alt="Card image cap">
                     </div>
                     <div class="card-body text-center mt-4">
                         <h4 class="text-uppercase card-title">Denzel Washington</h4>
@@ -96,33 +96,32 @@
 
     <div class="container2">
         <div class="col-sm-4">
-            <form action="/file-upload" class="dropzone" id="dropzone">
+            <form action="/file-upload" class="dropzone" id="dropzone" method="POST">
                 <div class="dz-message needsclick">
                     <img src="drop.png" width="50vw" height="50vw"><br>
                     <span class="note needsclick">Drop files here or click to upload</span>
                 </div>
+                <button id="submitBtn" type="button" class="btn btn-success">Classify</button>
             </form>
-            <button id="submitBtn" type="button" class="btn btn-success">Classify</button>
+           
         </div>
     </div>
 
     <div class="container3">
         <div class="result" id="resultHolder">
             <h1>Angelina Jolie</h1>
-            <p>Angelina Jolie DCMG is an American actress, filmmaker, and humanitarian. 
+            <!--<p>Angelina Jolie DCMG is an American actress, filmmaker, and humanitarian. 
             The recipient of numerous accolades, including an Academy Award and three Golden Globe Awards,
-            she has been named Hollywood's highest-paid actress multiple times</p>
+            she has been named Hollywood's highest-paid actress multiple times</p>-->
         </div>
     </div>
     
     
-
-
-
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="dropzone.min.js"></script>
-    <script src="app.js"></script>
+
+   
+
 </body>
 </html>
