@@ -12,8 +12,7 @@ make sure to delete cropped folder and .pckl and .json files on first run so you
 </br>
 
 <b> Still pending</b> </br>
-Completing frontend </br>
-Connecting frontend to backend</br>
+Image jab drop ho website pe to wo read ho and flask backend pe jaye. If someone tries do this</br>
 
 </br>
 Reference Repo: https://github.com/codebasics/py/tree/master/DataScience/CelebrityFaceRecognition</br>
