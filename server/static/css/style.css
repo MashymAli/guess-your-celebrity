@@ -45,7 +45,7 @@ html,body{
 .container2{
     width: 20rem;
     height: 24rem;
-    background-color: brown;
+    /*background-color: brown;*/
     /*position: absolute;*/
     left: 0;
     right: 0;
@@ -62,7 +62,7 @@ html,body{
     margin: auto;
     /*border: 0.1rem yellow solid;*/
     text-align: center;
-    margin-top: 2rem;
+    /*margin-top: 2rem;*/
 }
 
 

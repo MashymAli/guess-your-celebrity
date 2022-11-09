@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css"
+    type="text/css"
+    />
+
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
 
 </head>
@@ -110,9 +116,9 @@
     <div class="container3">
         <div class="result" id="resultHolder">
             <h1>Angelina Jolie</h1>
-            <!--<p>Angelina Jolie DCMG is an American actress, filmmaker, and humanitarian. 
+            <p>Angelina Jolie DCMG is an American actress, filmmaker, and humanitarian. 
             The recipient of numerous accolades, including an Academy Award and three Golden Globe Awards,
-            she has been named Hollywood's highest-paid actress multiple times</p>-->
+            she has been named Hollywood's highest-paid actress multiple times</p>
         </div>
     </div>
     
@@ -120,6 +126,13 @@
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+
+    <script>
+    // Dropzone has been added as a global variable.
+    const dropzone = new Dropzone("div.dropzone", { url: "/file/post" });
+    </script>
 
    
 
