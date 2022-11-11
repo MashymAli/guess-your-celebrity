@@ -65,7 +65,7 @@ html,body{
     /*margin-top: 2rem;*/
 }
 
-
+/* IT IS NOT USING CURRENTLY  
 .dropzone{
     border-style: dashed;
     width: 17rem;
@@ -75,7 +75,7 @@ html,body{
     left: 0;
     right: 0;
     margin: auto;
-}
+}*/
 
 
 #submitBtn{
