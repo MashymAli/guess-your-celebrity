@@ -43,8 +43,8 @@ html,body{
 }
 
 .container2{
-    width: 20rem;
-    height: 24rem;
+    width: 16rem;
+    height: 13rem;
     /*background-color: brown;*/
     /*position: absolute;*/
     left: 0;
@@ -79,13 +79,15 @@ html,body{
 
 
 #submitBtn{
+    background-color: green;
     width: 5rem;
     height: 3rem;
-    /*background-color: brown;*/
-    position: absolute;    
+    /* background-color: brown; */
+    position: absolute;
     left: 0;
     right: 0;
     margin: auto;
-    margin-top: 15rem;
+    margin-top: 3rem;
+    color: white;
 }
 

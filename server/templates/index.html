@@ -99,26 +99,33 @@
             </div>   
         </div>
     </div>
-
+<!--
     <div class="container2">
         <div class="col-sm-4">
-            <form action="/file-upload" class="dropzone" id="dropzone" method="POST">
-                <div class="dz-message needsclick">
+            <form action="http://localhost:5000/uploader" class="dropzone" id="dropzone" method="POST">
+                <div class="dz-message needsclick" type="file">
                     <img src="drop.png" width="50vw" height="50vw"><br>
                     <span class="note needsclick">Drop files here or click to upload</span>
                 </div>
-                <button id="submitBtn" type="button" class="btn btn-success">Classify</button>
+                <button id="submitBtn" type="submit" class="btn btn-success">Classify</button>
             </form>
            
         </div>
     </div>
+-->
+
+<div class="container2">
+    <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
+        <input type=file name=photo>
+        <input id="submitBtn" type="submit">
+    </form>
+</div>
+
 
     <div class="container3">
         <div class="result" id="resultHolder">
-            <h1>Angelina Jolie</h1>
-            <p>Angelina Jolie DCMG is an American actress, filmmaker, and humanitarian. 
-            The recipient of numerous accolades, including an Academy Award and three Golden Globe Awards,
-            she has been named Hollywood's highest-paid actress multiple times</p>
+            <h1>{{ actor_name }}</h1>
+            <p>{{ actor_desc }}</p>
         </div>
     </div>
     
@@ -126,7 +133,7 @@
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    
+    <!--
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 
     <script>
@@ -134,7 +141,7 @@
     const dropzone = new Dropzone("div.dropzone", { url: "/file/post" });
     </script>
 
-   
+-->
 
 </body>
 </html>
