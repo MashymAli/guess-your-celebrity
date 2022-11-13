@@ -135,7 +135,7 @@ print(class_dict)
 
 import joblib 
 # Save the model as a pickle in a file 
-joblib.dump(best_clf, 'saved_model.pkl') 
+joblib.dump(best_clf, 'saved_model.joblib') 
 print("done pickling")
 
 import json
