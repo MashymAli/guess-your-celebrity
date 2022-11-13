@@ -26,7 +26,6 @@ def classify_image(image_base64_data, file_path=None):
         
         result.append(class_number_to_name(__model.predict(final)[0]))
           
-
     return result
 
 
@@ -35,22 +34,21 @@ def class_number_to_name(class_num):
 
 
 def load_saved_artifacts():
-    print("loading saved artifacts...start")
+    #print("loading saved artifacts...start")
 
     global __class_name_to_number
     global __class_number_to_name
 
-    with open("F:/facial recogition/server/artifacts/class_dictionary.json", "r") as f:
+    with open("./server/artifacts/class_dictionary.json", "r") as f:
         __class_name_to_number = json.load(f)
         __class_number_to_name = {v:k for k,v in __class_name_to_number.items()}
 
     global __model
     if __model is None:
-        with open('F:/facial recogition/server/artifacts/saved_model.pkl', 'rb') as f:
+        with open('./server/artifacts/saved_model.pkl', 'rb') as f:
             __model = joblib.load(f)
 
-
-    print("loading saved artifacts...done")
+    #print("loading saved artifacts...done")
 
 
 def get_cv2_image_from_base64_string(b64str):
@@ -60,8 +58,8 @@ def get_cv2_image_from_base64_string(b64str):
     return img
 
 def get_cropped_image_if_2_eyes(image_path, image_base64_data):
-    face_cascade = cv.CascadeClassifier('F:/facial recogition/server/opencv/haarcascades/haarcascade_frontalface_default.xml')
-    eye_cascade = cv.CascadeClassifier('F:/facial recogition/server/opencv/haarcascades/haarcascade_eye.xml')
+    face_cascade = cv.CascadeClassifier('./server/opencv/haarcascades/haarcascade_frontalface_default.xml')
+    eye_cascade = cv.CascadeClassifier('./server/opencv/haarcascades/haarcascade_eye.xml')
 
     if image_path:
         img = cv.imread(image_path)
@@ -81,21 +79,6 @@ def get_cropped_image_if_2_eyes(image_path, image_base64_data):
     return cropped_faces
 
 
-def get_b64_text_image_for_angelina():
-    with open('F:/facial recogition/server/b64.txt') as f:
-        return f.read()
-
-
-
 if __name__ == '__main__':
     load_saved_artifacts()
     #print(classify_image(None, "F:/facial recogition/server/test_images/1.jpg"))
-    print(classify_image(None, "F:/facial recogition/server/static/uploadedimg/5.jpg"))
-    #print(classify_image(None, "F:/facial recogition/server/test_images/3.jpg"))
-    #print(classify_image(None, "F:/facial recogition/server/test_images/4.jpg"))
-    #print(classify_image(None, "F:/facial recogition/server/test_images/5.jpg")) # Inconsistent result could be due to https://github.com/scikit-learn/scikit-learn/issues/13211
-    #print(classify_image(None, "F:/facial recogition/server/test_images/6.jpg"))
-
-    #print(class_number_to_name(5))
-    #print(classify_image(get_b64_text_image_for_angelina(),None))
-    
