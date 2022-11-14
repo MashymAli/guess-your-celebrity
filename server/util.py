@@ -1,4 +1,4 @@
-import joblib
+import pickle
 import json
 import numpy as np
 import base64
@@ -45,8 +45,8 @@ def load_saved_artifacts():
 
     global __model
     if __model is None:
-        with open('./server/artifacts/saved_model.joblib', 'rb') as f:
-            __model = joblib.load(f)
+        with open('./server/artifacts/saved_model.pkl', 'rb') as f:
+            __model = pickle.load(f)
 
     #print("loading saved artifacts...done")
 

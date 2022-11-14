@@ -133,10 +133,15 @@ print(cm)
 print(class_dict)
 
 
-import joblib 
+#import joblib
 # Save the model as a pickle in a file 
-joblib.dump(best_clf, 'saved_model.joblib') 
-print("done pickling")
+#joblib.dump(best_clf, 'saved_model.joblib') 
+#print("done pickling")
+
+file = "saved_model.pkl"
+fileobj = open(file, 'wb')
+pickle.dump(best_clf, fileobj)
+fileobj.close()
 
 import json
 with open("class_dictionary.json","w") as f:
