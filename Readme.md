@@ -12,6 +12,10 @@ ALL the backend and frontend is in server folder.</br>
 </br>
 
 </br>
+Run server.py file then go to this link http://127.0.0.1:5000/</br>
+</br>
+
+</br>
 All libraries used till today are in requirements.txt file </br>
 </br>
 
