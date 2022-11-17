@@ -133,11 +133,6 @@ print(cm)
 print(class_dict)
 
 
-#import joblib
-# Save the model as a pickle in a file 
-#joblib.dump(best_clf, 'saved_model.joblib') 
-#print("done pickling")
-
 file = "saved_model.pkl"
 fileobj = open(file, 'wb')
 pickle.dump(best_clf, fileobj)

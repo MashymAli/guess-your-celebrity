@@ -33,7 +33,7 @@ def upload():
             actor_name = "Not identified"
         
         try:
-            actor_desc = wikipedia.summary(actor_name, sentences=2)
+            actor_desc = wikipedia.summary(actor_name, sentences=2, auto_suggest=False)
         except:
             actor_desc = "No description"
 
