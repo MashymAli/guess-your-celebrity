@@ -19,7 +19,7 @@ def get_cropped_image_if_2_eyes(image_path):
         roi_color = img[y:y+h, x:x+w]
         eyes = eye_cascade.detectMultiScale(roi_gray)
         if len(eyes) >= 2:
-            return roi_color
+            return roi_color   #roi = region of interest
 
 
 #store cropped images in cropped folder inside dataset folder
