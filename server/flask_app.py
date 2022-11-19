@@ -3,7 +3,7 @@ from flask_uploads import UploadSet, configure_uploads, IMAGES
 import util
 import wikipedia, os
 
-app = Flask(__name__)
+app = Flask(__name__)  #creates flask instance
 
 photos = UploadSet('photos', IMAGES)
 
