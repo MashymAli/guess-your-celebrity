@@ -5,7 +5,7 @@ We can classify (recognize) famous celebrities. This provides the suitable platf
 **Model:** Logistic Regression 
 
 ### Requirements:
-* Make sure you have python 3.8 or above installed on your system.
+* Make sure you have python 3.10 or above installed on your system.
 * Activate your virtualenv and run "pip install -r requirements.txt" to download all necessary modules.
 
 ### Deployed Link:
