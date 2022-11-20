@@ -132,7 +132,7 @@ print(cm)
 
 print(class_dict)
 
-
+#saving model that we have trained above
 file = "saved_model.pkl"
 fileobj = open(file, 'wb')
 pickle.dump(best_clf, fileobj)
