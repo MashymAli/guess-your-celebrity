@@ -101,17 +101,15 @@ scores = []
 best_estimators = {}
 import pandas as pd
 for algo, mp in model_params.items():
-    pipe = make_pipeline(StandardScaler(), mp['model'])
-    clf =  GridSearchCV(pipe, mp['params'], cv=5, return_train_score=False)
-    clf.fit(X_train, y_train)
+    pipe = make_pipeline(StandardScaler(), mp['model']) #pipeline is flow of work
+    clf =  GridSearchCV(pipe, mp['params'], cv=5, return_train_score=False) #classifier
+    clf.fit(X_train, y_train) # fit the pipeline to the training data
     scores.append({
         'model': algo,
         'best_score': clf.best_score_,
         'best_params': clf.best_params_
     })
     best_estimators[algo] = clf.best_estimator_
-    print(f'iteration {count}')
-    count+=1
 
     
 print("\n")
