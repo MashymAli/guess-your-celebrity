@@ -3,18 +3,19 @@ from sklearn.model_selection import train_test_split
 import cv2 as cv
 import pickle
 import numpy as np
-import pywt
+import pywt   #PyWavelets
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import svm
 from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import GridSearchCV
 
-
+#open dictionary where all paths of cleaned images in dataset is stored
 file = "celebrity_file_names_paths_dict.pkl"
 fileobj = open(file, 'rb')
 celebrity_file_names_dict = pickle.load(fileobj)
 
+# wavelet transform is basically highliting parts of face for recognition
 # Preprocessing: Use wavelet transform as a feature for traning our model
 def w2d(img, mode='haar', level=1):
     imArray = img
@@ -40,10 +41,10 @@ def w2d(img, mode='haar', level=1):
 
 
 
-
+#provides 0 till 5 index to each folder basically  {"Angelina Jolie": 0, "Brad Pitt": 1, ......}
 class_dict = {}
 count = 0
-for celebrity_name in celebrity_file_names_dict.keys():  #provides 0 till 99 index to each folder basically
+for celebrity_name in celebrity_file_names_dict.keys(): 
     class_dict[celebrity_name] = count
     count = count + 1
 print(class_dict)
@@ -51,23 +52,24 @@ print(class_dict)
 
 
 X, y = [], []
-for celebrity_name, training_files in celebrity_file_names_dict.items():
-    for training_image in training_files:
+for celebrity_name, training_files in celebrity_file_names_dict.items(): #iterates through celebrities
+    for training_image in training_files: #iterates images of that celebrities
         img = cv.imread(training_image)
         if img is None:
             continue
-        scalled_raw_img = cv.resize(img, (32, 32))
-        img_har = w2d(img,'db1',5)
-        scalled_img_har = cv.resize(img_har, (32, 32))
-        combined_img = np.vstack((scalled_raw_img.reshape(32*32*3,1),scalled_img_har.reshape(32*32,1)))
+        scalled_raw_img = cv.resize(img, (32, 32)) #resizing images and getting scaled raw image
+        img_har = w2d(img,'db1',5)  #wavelet transform image
+        scalled_img_har = cv.resize(img_har, (32, 32)) #getting scaled wavelet image
+        combined_img = np.vstack((scalled_raw_img.reshape(32*32*3,1),scalled_img_har.reshape(32*32,1))) #stacking raw and wavelet transformed image  32*32*3 means rgb image and 2*32 meand grayscale image
         X.append(combined_img)
-        y.append(class_dict[celebrity_name]) 
+        y.append(class_dict[celebrity_name]) #index of celebrity name from saved dict
 
+#Checking no of images in X
 X = np.array(X).reshape(len(X),4096).astype(float)
-print(X.shape)  #prints (2212, 4096) which means (no.of images, pic is represented as 1d array)
+print(X.shape)  #prints (2212, 4096) which means (no.of images, pic is represented as 1d array [32*32*3 + 32*32])
 
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+#Splitting data
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0) #random state=0 means same data for test and train is used across different executions
 
 
 # TRYING DIFFERENT ALGOS FOR ACCURACY

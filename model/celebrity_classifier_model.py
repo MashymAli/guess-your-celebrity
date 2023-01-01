@@ -27,6 +27,7 @@ path_to_data = "./model/dataset/"
 path_to_cr_data = "./model/dataset/cropped/"
 
 
+#gives all folder names in dataset folder (celebrities names)
 img_dirs = []
 for entry in os.scandir(path_to_data):
     if entry.is_dir():
